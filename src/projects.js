@@ -1,5 +1,5 @@
 export function createProject(name) {
-    return { name, items: [] }
+    return { name, tasks: [] }
 }
 
 export function createDefaultProject() {
@@ -9,6 +9,6 @@ export function createDefaultProject() {
 export const defaultProject = createProject('defaultProject');
 
 export function addTaskToProject(task, project = defaultProject) {
-    project.items.push(task);
+    project.tasks.push(task);
 }
 
