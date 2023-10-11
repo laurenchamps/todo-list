@@ -1,12 +1,13 @@
 import './style.css';
+import { formatDistance, subDays } from 'date-fns'; 
 import { createTask } from './tasks.js';
 import { createProject, addTaskToProject, displayTasks, removeTask } from './projects.js';
 
 export const toDoList = [];
 
-const task1 = createTask('Cook dinner', 'Prep and cook soup', '14/10/2023', 'low');
-const task2 = createTask('Go shopping', 'Buy stuff', '14/10/2023', 'low');
-const task3 = createTask('Walk the dog', 'Take her to the oval', '14/10/2023', 'med');
+const task1 = createTask('Cook dinner', 'Prep and cook soup', new Date(2023, 9, 14), 'low');
+const task2 = createTask('Go shopping', 'Buy stuff', new Date(2023, 9, 14), 'low');
+const task3 = createTask('Walk the dog', 'Take her to the oval', new Date(2023, 9, 14), 'med');
 
 
 export const project1 = createProject('project1');
