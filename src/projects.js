@@ -1,4 +1,4 @@
-import { toDoList } from './index.js';
+import { toDoList, project1 } from './index.js';
 
 export function createProject(name) {
     return { name, tasks: [] };
@@ -6,17 +6,25 @@ export function createProject(name) {
 
 export function addTaskToProject(task, project) {
     project.tasks.push(task);
-    // task.project  = project.name;
+    task.project  = project.name;
+
+    return task;
 }
 
 export function displayTasks(project) {
     project.tasks.forEach(task => console.log(task));
 }
 
-export function removeTask(task) {
-    const project = task.project;
+export function removeTask(task, project) {
+    let arrIndex = '';
+    project.tasks.forEach((item, index) => {
+        if (item === task) {
+            arrIndex = index;
+        }
+    });
 
-    const taskToRemove = project.tasks.filter((item) => item === task);
-    console.log(taskToRemove);
+    project.tasks.splice(arrIndex, 1);
+
+    return project;
 }
 
