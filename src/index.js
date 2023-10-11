@@ -1,5 +1,5 @@
 import './style.css';
-import { createTask, addTaskToList } from './tasks.js';
+import { createTask } from './tasks.js';
 import { createProject, addTaskToProject, displayTasks, removeTask } from './projects.js';
 
 export const toDoList = [];

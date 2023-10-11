@@ -8,7 +8,7 @@ export function addTaskToProject(task, project) {
     project.tasks.push(task);
     task.project  = project.name;
 
-    return task;
+    return project;
 }
 
 export function displayTasks(project) {
