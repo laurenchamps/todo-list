@@ -1,7 +1,14 @@
 import { toDoList, project1 } from './index.js';
 
+export const projectList = [];
+
 export function createProject(name) {
     return { name, tasks: [] };
+}
+
+export function addProject(project) {
+    projectList.push(project);
+    return projectList;
 }
 
 export function addTaskToProject(task, project) {
