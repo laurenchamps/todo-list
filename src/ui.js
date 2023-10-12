@@ -6,7 +6,7 @@ const enterTask = document.querySelector('.add-task');
 const addBtn = document.querySelector('#add-btn');
 const taskList = document.querySelector('.tasks');
 
-function addTaskToDOM(newTask, project) {
+export function addTaskToDOM(newTask, project) {
     const li = document.createElement('li');
     const input = document.createElement('input');
     const label = document.createElement('label');

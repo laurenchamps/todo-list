@@ -1,14 +1,26 @@
 import './style.css';
 import { formatDistance, subDays } from 'date-fns'; 
-import { createTask } from './tasks.js';
-import { createProject, addProject, projectList } from './projects.js';
+import { addTaskToList, createTask } from './tasks.js';
+import { createProject, addProject, projectList, addTaskToProject } from './projects.js';
 import './ui.js';
+import { addTaskToDOM } from './ui.js';
 
 export const toDoList = createProject('toDoList');
 
-addProject(toDoList);
+export function renderPage() {
+    addProject(toDoList);
 
+    const finishProject = createTask('Finish project');
+    const cookDinner = createTask('Cook dinner');
+    const run = createTask('Go for a run');
 
-// const task1 = createTask('Cook dinner', 'Prep and cook soup', new Date(2023, 9, 14), 'low');
-// const task2 = createTask('Go shopping', 'Buy stuff', new Date(2023, 9, 14), 'low');
-// const task3 = createTask('Walk the dog', 'Take her to the oval', new Date(2023, 9, 14), 'med');
+    addTaskToProject(finishProject, toDoList);
+    addTaskToProject(cookDinner, toDoList);
+    addTaskToProject(run, toDoList);
+
+    addTaskToDOM(finishProject, toDoList);
+    addTaskToDOM(cookDinner, toDoList);
+    addTaskToDOM(run, toDoList);
+}
+
+renderPage();
