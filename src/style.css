@@ -116,6 +116,7 @@ li label {
 [aria-label="delete"] {
     background-color: var(--primary-bg-color);
     border: none;
+    cursor: pointer;
 }
 
 form {
