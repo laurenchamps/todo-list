@@ -21,30 +21,16 @@
       <main>
         <section class="todo-list wrapper" aria-labelledby="todos-label">
           <h2 id="todos-label" tabindex="-1">My To Do List</h2>
-          <ul class="tasks">
-            <li class="task">
-              <input type="checkbox" id="todo-1">
-              <label for="todo-1">Walk the dog</label>
-              <button aria-label="delete">&times;</button>
-            </li>
-            <li class="task">
-              <input type="checkbox" id="todo-2">
-              <label for="todo-2">Knit</label>
-              <button aria-label="delete">&times;</button>
-            </li>
-            <li class="task">
-              <input type="checkbox" id="todo-3">
-              <label for="todo-3">Sleep</label>
-              <button aria-label="delete">&times;</button>
-            </li>
-          </ul>
+          <ul class="tasks"></ul>
           <div class="empty-state">
-            <p>Either you've finished everything or you still have tasks to add to your list. Add your first todo &#x2193;</p>
+            <p>Add your first task &#x2193;</p>
           </div>
           <form action="">
-            <input type="text" aria-label="Write a new task to add to your todo list" class="add-task" placeholder="e.g. walk the dog">
+            <input type="text" aria-label="Write a new task to add to your to do list" class="add-task" placeholder="e.g. walk the dog">
             <button id="add-btn" type="submit">Add</button>
           </form>
+          <!-- Live region to provide feedback for accessibility purposes -->
+          <div role="status" aria-live="polite" class="vh"></div>
         </section>
       </main>
     </div>

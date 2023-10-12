@@ -39,7 +39,7 @@ button {
     --placeholder-font-color: #444;
 
     --accent-light: ##EEA4A0;
-    --accent-dark: #ba3737;
+    --accent-dark: #A13030;
 }
 
 /* General typography */
@@ -113,7 +113,7 @@ li label {
     margin-inline-start: 1rem;
 }
 
-[aria-label="delete"] {
+[aria-label*="delete"] {
     background-color: var(--primary-bg-color);
     border: none;
     cursor: pointer;
@@ -128,7 +128,7 @@ form {
 input.add-task {
     flex: 1;
     border-radius: 5px;
-    border: 1px solid var(--placeholder-font-color)
+    border: 1px solid var(--placeholder-font-color);
 }
 
 button#add-btn {
@@ -154,6 +154,7 @@ footer {
 
 ul:empty + .empty-state {
     display: block;
+    margin-block-end: 1.4rem;
 }
 
 :checked + label {
@@ -169,19 +170,30 @@ ul:empty + .empty-state {
 ::-webkit-input-placeholder { 
     color: var(--placeholder-font-color);
     font-style: italic;
-  }
-  ::-moz-placeholder { 
-    color: var(--placeholder-font-color);
-    font-style: italic;
-  }
-  :-ms-input-placeholder { 
-    color: var(--placeholder-font-color);
-    font-style: italic;
-  }
-  :-moz-placeholder { 
-    color: var(--placeholder-font-color);
-    font-style: italic;
-  }
+}
+::-moz-placeholder { 
+color: var(--placeholder-font-color);
+font-style: italic;
+}
+:-ms-input-placeholder { 
+color: var(--placeholder-font-color);
+font-style: italic;
+}
+:-moz-placeholder { 
+color: var(--placeholder-font-color);
+font-style: italic;
+}
+
+/* Hide live region (added only for not using visual UI use-case) */
+.vh {
+    position: absolute !important;
+    clip: rect(1px, 1px, 1px, 1px);
+    padding:0 !important;
+    border:0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+}
 
 /* Media queries */
 

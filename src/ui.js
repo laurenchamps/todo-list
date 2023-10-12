@@ -38,7 +38,7 @@ function getTaskId(task, project) {
 function createDeleteBtn(task, project) {
     const deleteBtn = document.createElement('button');
     
-    deleteBtn.setAttribute('aria-label', 'delete');
+    deleteBtn.setAttribute('aria-label', `delete ${task.title}`);
     deleteBtn.setAttribute('id', task.title);
     
     const textNode = document.createTextNode('\u00D7');
@@ -50,6 +50,11 @@ function createDeleteBtn(task, project) {
     });
 
     return deleteBtn;
+}
+
+function addFeedback(taskTitle) {
+    let liveRegion = document.querySelector('[role="status"]');
+    liveRegion.textContent = `${taskTitle} added`;
 }
 
 function clearTask(taskId) {
@@ -70,5 +75,6 @@ export const eventListener = addTask.addEventListener('click', (e) => {
     addTaskToProject(newTask, toDoList);
     addTaskToDOM(newTask, toDoList);
     clearInput();
+    addFeedback(newTask.title);
 } )
 
