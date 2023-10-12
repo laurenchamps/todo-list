@@ -1,5 +1,3 @@
-import { toDoList, project1 } from './index.js';
-
 export const projectList = [];
 
 const taskId = {
@@ -9,7 +7,6 @@ const taskId = {
         return taskId.value += 1;
     },
 };
-
 
 export function createProject(name) {
     return { name, tasks: [] };

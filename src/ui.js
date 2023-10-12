@@ -1,6 +1,9 @@
-import { createTask } from './tasks.js';
-import { addTaskToProject, removeTask, projectList } from './projects.js';
-import { toDoList } from './index.js';
+import { createTask } from './tasks';
+import { 
+    addTaskToProject, 
+    removeTask 
+} from './projects';
+import { toDoList } from './index';
 
 const enterTask = document.querySelector('.add-task');
 const addBtn = document.querySelector('#add-btn');

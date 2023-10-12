@@ -1,9 +1,12 @@
 import './style.css';
-import { formatDistance, subDays } from 'date-fns'; 
-import { addTaskToList, createTask } from './tasks.js';
-import { createProject, addProject, projectList, addTaskToProject } from './projects.js';
-import './ui.js';
-import { addTaskToDOM } from './ui.js';
+import {  createTask } from './tasks';
+import { 
+    createProject, 
+    addProject, 
+    addTaskToProject 
+} from './projects';
+import { addTaskToDOM } from './ui';
+
 
 export const toDoList = createProject('toDoList');
 
