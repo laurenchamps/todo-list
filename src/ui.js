@@ -74,6 +74,7 @@ function clearTask(taskId, task, project) {
     const inputElement = document.getElementById(`task-${taskId}`);
     inputElement.parentNode.remove();
     removeTask(task, project);
+    setFocus();
 }
 
 function inputIsValid() {
@@ -86,6 +87,15 @@ function inputIsValid() {
 function clearInput() {
     enterTask.value = '';
 }
+
+function setFocus() {
+    if (taskList.firstChild) {
+        document.querySelector('ul input').focus();
+    } else {
+        document.querySelector('#todos-label').focus();
+    }
+}
+
 
 // Event listeners
 export const eventListener = addBtn.addEventListener('click', (e) => {

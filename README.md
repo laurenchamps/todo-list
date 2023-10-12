@@ -1,2 +1,3 @@
 # todo-list
-To do list project for The Odin Project
+
+A minimal to do list app

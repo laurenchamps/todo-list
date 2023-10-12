@@ -53,14 +53,15 @@ body {
     grid-template-rows: auto 1fr auto;
 }
 
+h2 {
+    margin-block-end: 0.8rem;
+}
+
+/* Header */
+
 header {
     background-color: var(--accent-bg-color);
     color: var(--primary-font-color);
-}
-
-/* Layout */
-
-header {
     padding: 1rem;
     display: flex;
     justify-content: space-between;
@@ -78,6 +79,8 @@ header {
     cursor: pointer;
 } */
 
+/* Main content */
+
 .wrapper {
     width: 80%;
     margin: 0 auto;
@@ -93,10 +96,7 @@ main {
     display: flex;
 }
 
-h2 {
-    margin-block-end: 0.8rem;
-}
-
+/* Task list component */
 li.task {
     display: grid;
     grid-template-columns: 25px 1fr 25px;
@@ -111,6 +111,10 @@ li.task:last-child {
 
 li label {
     margin-inline-start: 1rem;
+}
+
+:checked + label {
+    text-decoration: line-through;
 }
 
 [aria-label*="delete"] {
@@ -140,6 +144,7 @@ button#add-btn {
     color: var(--secondary-font-color);
 }
 
+/* Footer */
 footer {
     text-align: center;    
     font-size: 0.8rem;
@@ -157,12 +162,7 @@ ul:empty + .empty-state {
     margin-block-end: 1.4rem;
 }
 
-:checked + label {
-    text-decoration: line-through;
-}
-
 /* Ensure heading to be focused on in case of deleting the last item in the list does not have focus style applied */
-
 [tabindex="-1"] { outline: none }
 
 /* Placeholder styling */
