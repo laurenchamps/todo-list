@@ -1,23 +1,26 @@
 import { createTask } from './tasks.js';
-import { addTaskToProject, removeTask } from './projects.js';
+import { addTaskToProject, removeTask, projectList } from './projects.js';
 import { toDoList } from './index.js';
 
 const enterTask = document.querySelector('.add-task');
-const addTask = document.querySelector('#add-btn');
+const addBtn = document.querySelector('#add-btn');
 const taskList = document.querySelector('.tasks');
 
 function addTaskToDOM(newTask, project) {
     const li = document.createElement('li');
     const input = document.createElement('input');
     const label = document.createElement('label');
-    const taskId = getTaskId(newTask, project);
 
     li.setAttribute('class', 'task');
 
     input.setAttribute('type', 'checkbox');
-    input.setAttribute('id', taskId.id);
+    input.setAttribute('id', `task-${newTask.id}`);
 
-    label.setAttribute('for', taskId.id);
+    input.addEventListener('click', (e) => {
+        setDone(e, newTask, project);
+    });
+
+    label.setAttribute('for', `task-${newTask.id}`);
     label.textContent = newTask.title;
 
     li.appendChild(input);
@@ -35,6 +38,17 @@ function getTaskId(task, project) {
     }
 }
 
+function setDone(e, task, project) { 
+    const taskArr = project.tasks;
+
+    taskArr.forEach((item) => {
+        if (item.id === task.id) {
+            item.done = e.target.checked;
+        } 
+    });
+    console.log(project);
+}
+
 function createDeleteBtn(task, project) {
     const deleteBtn = document.createElement('button');
     
@@ -44,9 +58,8 @@ function createDeleteBtn(task, project) {
     const textNode = document.createTextNode('\u00D7');
     deleteBtn.appendChild(textNode);
     
-    const taskId = getTaskId(task, project);
     deleteBtn.addEventListener('click', () => {
-        clearTask(taskId);
+        clearTask(task.id, task, project);
     });
 
     return deleteBtn;
@@ -57,10 +70,10 @@ function addFeedback(taskTitle) {
     liveRegion.textContent = `${taskTitle} added`;
 }
 
-function clearTask(taskId) {
-    const inputElement = document.getElementById(taskId.id);
+function clearTask(taskId, task, project) {
+    const inputElement = document.getElementById(`task-${taskId}`);
     inputElement.parentNode.remove();
-    removeTask(taskId.task, taskId.project);
+    removeTask(task, project);
 }
 
 function inputIsValid() {
@@ -75,7 +88,7 @@ function clearInput() {
 }
 
 // Event listeners
-export const eventListener = addTask.addEventListener('click', (e) => {
+export const eventListener = addBtn.addEventListener('click', (e) => {
     e.preventDefault();
     const newTask = createTask(enterTask.value);
 
@@ -88,5 +101,5 @@ export const eventListener = addTask.addEventListener('click', (e) => {
     addTaskToDOM(newTask, toDoList);
     clearInput();
     addFeedback(newTask.title);
-} )
+})
 
