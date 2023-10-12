@@ -130,7 +130,7 @@ input.add-task {
     border: 1px solid var(--placeholder-font-color)
 }
 
-button#add {
+button#add-btn {
     padding-inline: 1.6rem;
     padding-block: 0.2rem;
     border: none;

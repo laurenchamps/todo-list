@@ -2,8 +2,9 @@ import './style.css';
 import { formatDistance, subDays } from 'date-fns'; 
 import { createTask } from './tasks.js';
 import { createProject, addTaskToProject, displayTasks, removeTask } from './projects.js';
+import { eventListener } from './ui.js';
 
-export const toDoList = [];
+export const toDoList = createProject('toDoList');
 
 const task1 = createTask('Cook dinner', 'Prep and cook soup', new Date(2023, 9, 14), 'low');
 const task2 = createTask('Go shopping', 'Buy stuff', new Date(2023, 9, 14), 'low');

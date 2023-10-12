@@ -15,6 +15,8 @@ export function addTaskToProject(task, project) {
     project.tasks.push(task);
     task.project  = project.name;
 
+    console.log(project);
+
     return project;
 }
 
