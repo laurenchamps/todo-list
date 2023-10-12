@@ -36,10 +36,12 @@ button {
 
     --primary-font-color: #2a2829;
     --secondary-font-color: #ffffff;
-    --placeholder-font-color: #444;
+    --placeholder-font-color: #545454;
 
     --accent-light: ##EEA4A0;
     --accent-dark: #A13030;
+
+    --border-color: #cecece;
 }
 
 /* General typography */
@@ -53,16 +55,24 @@ body {
     grid-template-rows: auto 1fr auto;
 }
 
-h2 {
-    margin-block-end: 0.8rem;
+h1 {
+    font-size: 1.6rem;
 }
+
+h2 {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-block-end: 1.2rem;
+
+}
+
 
 /* Header */
 
 header {
     background-color: var(--accent-bg-color);
     color: var(--primary-font-color);
-    padding: 1rem;
+    padding: 0.8rem 1.4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -87,9 +97,10 @@ header {
 }
 
 aside {
-    padding: 1rem;
+    padding: 1rem 1.4rem;
     background-color: var(--secondary-bg-color);
 }
+
 
 main {
     padding: 1rem;
@@ -102,7 +113,8 @@ li.task {
     grid-template-columns: 25px 1fr 25px;
     align-items: center;
     margin-block-end: 1rem;
-    border-bottom: 1px solid var(--placeholder-font-color);
+    padding-block-end: 0.4rem;
+    border-bottom: 1px solid var(--border-color);
 }
 
 li.task:last-child {
