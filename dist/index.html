@@ -7,7 +7,7 @@
   <body>
     <header>
       <h1>To do list</h1>
-      <p class="add-task">+</p>
+      <!-- <button class="add-task">+</button> -->
     </header>
     <div class="container">
       <aside>
@@ -19,8 +19,33 @@
         </ul>
       </aside>
       <main>
-        <section class="dashboard">
-          <h2>Tasks</h2>
+        <section class="todo-list wrapper" aria-labelledby="todos-label">
+          <h2 id="todos-label" tabindex="-1">My To Do List</h2>
+          <ul class="tasks">
+            <li class="task">
+              <input type="checkbox" id="todo-1">
+              <label for="todo-1">Walk the dog</label>
+              <button aria-label="delete"><!--add name of item to label via JS -->&times;</button>
+            </li>
+            <li class="task">
+              <input type="checkbox" id="todo-1">
+              <label for="todo-1">Knit</label>
+              <button aria-label="delete"><!--add name of item to label via JS -->&times;</button>
+
+            </li>
+            <li class="task">
+              <input type="checkbox" id="todo-1">
+              <label for="todo-1">Sleep</label>
+              <button aria-label="delete"><!--add name of item to label via JS -->&times;</button>
+            </li>
+          </ul>
+          <div class="empty-state">
+            <p>Either you've finished everything or you still have tasks to add to your list. Add your first todo &#x2193;</p>
+          </div>
+          <form action="">
+            <input type="text" aria-label="Write a new task to add to your todo list" class="add-task" placeholder="e.g. walk the dog">
+            <button id="add" type="submit">Add</button>
+          </form>
         </section>
       </main>
     </div>
