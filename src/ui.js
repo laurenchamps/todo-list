@@ -63,6 +63,13 @@ function clearTask(taskId) {
     removeTask(taskId.task, taskId.project);
 }
 
+function inputIsValid() {
+    if (enterTask.value) {
+        return true;
+    }
+    return false;
+}
+
 function clearInput() {
     enterTask.value = '';
 }
@@ -70,8 +77,13 @@ function clearInput() {
 // Event listeners
 export const eventListener = addTask.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log(e);
     const newTask = createTask(enterTask.value);
+
+    if (!inputIsValid()) {
+        alert('Task cannot be blank');
+        return;
+    }
+
     addTaskToProject(newTask, toDoList);
     addTaskToDOM(newTask, toDoList);
     clearInput();
