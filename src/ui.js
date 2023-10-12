@@ -30,25 +30,6 @@ export function addTaskToDOM(newTask, project) {
     taskList.appendChild(li);
 }
 
-function getTaskId(task, project) {
-    return { 
-        id: `task-${project.tasks.indexOf(task) + 1}`,
-        task: task,
-        project: project,
-    }
-}
-
-function setDone(e, task, project) { 
-    const taskArr = project.tasks;
-
-    taskArr.forEach((item) => {
-        if (item.id === task.id) {
-            item.done = e.target.checked;
-        } 
-    });
-    console.log(project);
-}
-
 function createDeleteBtn(task, project) {
     const deleteBtn = document.createElement('button');
     
@@ -65,9 +46,15 @@ function createDeleteBtn(task, project) {
     return deleteBtn;
 }
 
-function addFeedback(taskTitle) {
-    let liveRegion = document.querySelector('[role="status"]');
-    liveRegion.textContent = `${taskTitle} added`;
+function setDone(e, task, project) { 
+    const taskArr = project.tasks;
+
+    taskArr.forEach((item) => {
+        if (item.id === task.id) {
+            item.done = e.target.checked;
+        } 
+    });
+    console.log(project);
 }
 
 function clearTask(taskId, task, project) {
@@ -77,6 +64,10 @@ function clearTask(taskId, task, project) {
     setFocus();
 }
 
+function clearInput() {
+    enterTask.value = '';
+}
+
 function inputIsValid() {
     if (enterTask.value) {
         return true;
@@ -84,8 +75,9 @@ function inputIsValid() {
     return false;
 }
 
-function clearInput() {
-    enterTask.value = '';
+function addFeedback(taskTitle) {
+    let liveRegion = document.querySelector('[role="status"]');
+    liveRegion.textContent = `${taskTitle} added`;
 }
 
 function setFocus() {
@@ -95,7 +87,6 @@ function setFocus() {
         document.querySelector('#todos-label').focus();
     }
 }
-
 
 // Event listeners
 export const eventListener = addBtn.addEventListener('click', (e) => {

@@ -45,7 +45,7 @@ button {
 /* General typography */
 
 body {
-    font-family: system-ui, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Helvetica', sans-serif;
     line-height: 1.5;
     background-color: var(--primary-bg-color);
     min-height: 100vh;
