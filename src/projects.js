@@ -1,7 +1,15 @@
 import { toDoList, project1 } from './index.js';
 
 export const projectList = [];
-let taskId = 0;
+
+const taskId = {
+    value: 0,
+
+    increment() {
+        return taskId.value += 1;
+    },
+};
+
 
 export function createProject(name) {
     return { name, tasks: [] };
@@ -12,14 +20,9 @@ export function addProject(project) {
     return projectList;
 }
 
-function increment(value) {
-    return value += 1;
-}
-
 export function addTaskToProject(task, project) {
     project.tasks.push(task);
-    taskId = increment(taskId);
-    task.id = taskId;
+    task.id = taskId.increment();
     task.project  = project.name;
 
     return project;
