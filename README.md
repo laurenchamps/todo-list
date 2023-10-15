@@ -2,7 +2,7 @@
 
 A minimal to do list app with a focus on accessibility.
 
-:point_right: Live preview
+:point_right: [Live preview](laurenchamps.github.io/todo-list/)
 
 Completed as a project for [The Odin Project](https://www.theodinproject.com/lessons/node-path-javascript-todo-list).
 
